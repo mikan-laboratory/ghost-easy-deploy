@@ -1,0 +1,23 @@
+{
+  "name": "ghost-easy-deploy",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "seed:dev": "npx esno prisma/seed.dev.ts",
+    "seed:prod": "npx esno prisma/seed.prod.ts"
+  },
+  "prisma": {
+    "seed": "npx exno primsa seed.dev.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.8.1",
+    "bcrypt": "^5.1.1",
+    "esno": "^4.0.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.0",
+    "typescript": "^5.3.3",
+    "@types/node": "^20.10.5"
+  }
+}

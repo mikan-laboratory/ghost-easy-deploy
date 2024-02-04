@@ -23,14 +23,7 @@ chown -R ghostuser:ghostuser /var/www/ghost
 echo "Setting correct permissions for /var/www/ghost/content:"
 chmod -R 755 /var/www/ghost/content
 
-# Use the production Nginx configuration
-# First, substitute environment variables in the production config
-envsubst '${BLOG_URL}' < /etc/nginx/nginx.prod.conf > /etc/nginx/nginx.conf
-
-# Start Nginx
-nginx &
-
-su ghostuser -c 'cd /var/www/ghost && ghost config url https://$BLOG_URL && ghost start'
+su ghostuser -c 'cd /var/www/ghost && ghost config url $BLOG_URL && ghost start'
 
 # Prisma migrations
 npx prisma migrate resolve --applied 0_init
@@ -44,3 +37,5 @@ sqlite3 /var/www/ghost/content/data/ghost-local.db "UPDATE migrations_lock SET l
 
 # Restart to apply url and theme config
 su ghostuser -c 'cd /var/www/ghost && ghost restart'
+
+nginx -g "daemon off;"

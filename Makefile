@@ -1,6 +1,5 @@
-ENVIRONMENT ?= local
 # Default image name
-IMAGE_NAME ?= smooth-jazz
+IMAGE_NAME ?= ghost-easy-deploy
 # Default Ghost API key
 BLOG_URL ?= http://localhost:8080
 SITE_TITLE ?= Test
@@ -11,7 +10,7 @@ OWNER_EMAIL ?= test@example.com
 OWNER_PASSWORD ?= password
 
 # Container name
-CONTAINER_NAME ?= smooth-jazz-container
+CONTAINER_NAME ?= ghost-easy-deploy-container
 
 # Phony targets
 .PHONY: build run all clean clean-image clean-all terminal
@@ -25,14 +24,13 @@ build:
 
 # Run the Docker container
 run:
-	docker run -d --name $(CONTAINER_NAME) -p 8080:8080 -p 8081:8081 \
+	docker run -d --name $(CONTAINER_NAME) -p 8080:8080 \
 	-e SITE_TITLE=$(SITE_TITLE) \
 	-e SITE_DESCRIPTION=$(SITE_DESCRIPTION) \
 	-e OWNER_NAME=$(OWNER_NAME) \
 	-e OWNER_SLUG=$(OWNER_SLUG) \
 	-e OWNER_EMAIL=$(OWNER_EMAIL) \
 	-e OWNER_PASSWORD=$(OWNER_PASSWORD) \
-	-e ENVIRONMENT=$(ENVIRONMENT) \
 	-e BLOG_URL=$(BLOG_URL) \
 	$(IMAGE_NAME)
 
