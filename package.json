@@ -13,11 +13,14 @@
   "dependencies": {
     "@prisma/client": "^5.8.1",
     "bcrypt": "^5.1.1",
+    "bson-objectid": "^2.0.4",
     "esno": "^4.0.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.0",
-    "typescript": "^5.3.3",
-    "@types/node": "^20.10.5"
+    "@types/bcrypt": "^5.0.2",
+    "@types/node": "^20.10.5",
+    "prisma": "^5.7.0",
+    "typescript": "^5.3.3"
   }
 }

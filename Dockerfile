@@ -38,7 +38,7 @@ RUN npx prisma generate
 
 
 # Copy Nginx configuration
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.prod.conf /etc/nginx/nginx.conf
 
 
 # Prepare start script
