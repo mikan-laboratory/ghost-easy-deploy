@@ -1,4 +1,4 @@
-# Ghost East Deploy
+# Ghost Easy Deploy
 
 Easy deploy for Ghost
 
@@ -82,5 +82,5 @@ flyctl deploy --env SITE_TITLE="My Site" \
 --env SITE_DESCRIPTION="My website" \
 --env OWNER_NAME="Admin" \
 --env OWNER_SLUG="admin" \
---env BLOG_URL="mysite.com"
+--env BLOG_URL="https://mysite.com"
 ```
