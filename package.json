@@ -17,7 +17,7 @@
     "esno": "^4.0.0"
   },
   "devDependencies": {
-    "@faker-js/faker": "^8.4.0",
+    "@faker-js/faker": "^8.4.1",
     "@types/bcrypt": "^5.0.2",
     "@types/node": "^18.x.x",
     "prisma": "^5.7.0",
