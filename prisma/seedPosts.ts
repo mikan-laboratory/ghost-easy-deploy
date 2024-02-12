@@ -8,13 +8,16 @@ export const seedPosts = async ({ user, prisma }: SecondarySeedParams): Promise<
   for (let i = 0; i < 10; i++) {
     const postId = ObjectID().toHexString();
 
+    const isAboutPage = i === 0;
+
     await prisma.posts.create({
       data: {
         uuid: faker.string.uuid(),
         id: postId,
         email_recipient_filter: 'all',
-        title: faker.lorem.sentence(),
-        slug: faker.lorem.slug(),
+        title: isAboutPage ? 'About' : faker.lorem.sentence(),
+        type: isAboutPage ? 'page' : 'post',
+        slug: isAboutPage ? 'about' : faker.lorem.slug(),
         html: `<p>${faker.lorem.paragraphs()}</p>`,
         plaintext: faker.lorem.text(),
         created_at: new Date(),
