@@ -40,6 +40,7 @@ RUN npx prisma generate
 # Copy Nginx configuration
 COPY nginx.prod.conf /etc/nginx/nginx.conf
 
+COPY config.template.json /var/www/ghost/config.template.json
 
 # Prepare start script
 COPY start.sh .

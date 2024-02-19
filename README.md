@@ -106,7 +106,7 @@ Don't worry about the $35 a month price tag, immediately after signing up for th
 
 2. Set secrets in GitHub repository settings.
 
-3. Manually trigger by going to Actions tab and selecting `Fly Deploy`. Click `Run workflow` and enter the branch name to deploy.
+3. Manually trigger by going to Actions tab and selecting `Deploy`. Click `Run workflow` and enter the branch name to deploy.
    - You can update this action to trigger on push to `main` by changing the `on` section of the workflow file to `push: [main]`
 
 ### Command Line
@@ -120,6 +120,8 @@ flyctl secrets set GHOST_CONTENT_API_KEY="my-api-key-value" \
    MAILGUN_DOMAIN="somedomain" \
    MAILGUN_API_KEY="somekey" \
    MAILGUN_BASE_URL="mailgunbase" \
+   MAILGUN_USER="postmaster@somedomain \
+   MAILGUN_PASSWORD="password" \
    JWT_SECRET="somejwtsecret" \
    SITE_TITLE="My Site" \
    SITE_DESCRIPTION="My website" \
