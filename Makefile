@@ -8,6 +8,11 @@ OWNER_NAME ?= Test
 OWNER_SLUG ?= test
 OWNER_EMAIL ?= test@example.com
 OWNER_PASSWORD ?= password
+MAILGUN_DOMAIN ?= sandbox@mailbox.com
+MAILGUN_API_KEY ?= somkey
+MAILGUN_BASE_URL ?= https://api.mailgun.net/
+MAILGUN_USER ?= someuser
+MAILGUN_PASSWORD ?= somepassword
 
 # Container name
 CONTAINER_NAME ?= ghost-easy-deploy-container
@@ -32,6 +37,11 @@ run:
 	-e OWNER_EMAIL=$(OWNER_EMAIL) \
 	-e OWNER_PASSWORD=$(OWNER_PASSWORD) \
 	-e BLOG_URL=$(BLOG_URL) \
+	-e MAILGUN_DOMAIN=$(MAILGUN_DOMAIN) \
+	-e MAILGUN_API_KEY=$(MAILGUN_API_KEY) \
+	-e MAILGUN_BASE_URL=$(MAILGUN_BASE_URL) \
+	-e MAILGUN_USER=$(MAILGUN_USER) \
+	-e MAILGUN_PASSWORD=$(MAILGUN_PASSWORD) \
 	$(IMAGE_NAME)
 
 clean:
