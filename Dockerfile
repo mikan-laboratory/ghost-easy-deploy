@@ -14,7 +14,7 @@ RUN echo "#!/bin/sh\nset -x\nsqlite3 \$DATABASE_URL" > /usr/local/bin/database-c
 RUN chmod +x /usr/local/bin/database-cli
 
 # Install Ghost CLI
-RUN npm install ghost-cli@1.25.3 -g
+RUN npm install ghost-cli@1.26.0 -g
 
 # Set up Ghost
 RUN mkdir -p /var/www/ghost && \
@@ -23,19 +23,18 @@ RUN mkdir -p /var/www/ghost && \
 
 USER ghostuser
 WORKDIR /var/www/ghost
-RUN ghost install local --no-start
+RUN ghost install v5.82.3 local --no-start
 
 # Switch back to root user to install Prisma
 USER root
 WORKDIR /myapp
 
 # Install only production dependencies
-COPY package.json ./
-RUN npm install --omit=dev
+COPY package.json package-lock.json ./
+RUN npm ci
 
 COPY prisma ./prisma
 RUN npx prisma generate
-
 
 # Copy Nginx configuration
 COPY nginx.prod.conf /etc/nginx/nginx.conf
