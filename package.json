@@ -11,7 +11,7 @@
     "seed": "npx exno primsa seed.dev.ts"
   },
   "dependencies": {
-    "@prisma/client": "^5.8.1",
+    "@prisma/client": "^5.13.0",
     "bcrypt": "^5.1.1",
     "bson-objectid": "^2.0.4",
     "esno": "^4.7.0"
