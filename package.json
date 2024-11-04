@@ -19,7 +19,7 @@
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
     "@types/bcrypt": "^5.0.2",
-    "@types/node": "^18.x.x",
+    "@types/node": "^22.x.x",
     "prisma": "^5.18.0",
     "typescript": "^5.5.4"
   },
